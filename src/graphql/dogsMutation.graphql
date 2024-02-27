@@ -1,0 +1,70 @@
+input DogInput {
+  name: String
+  attributes: [DogAttributeInput!]
+  description: [String!]
+  image: String!
+  ageInWeeks: Int!
+  sex: String!
+  breed: String!
+  color: String!
+  fee: Float!
+  weight: Float!
+  availableDate: String!
+}
+
+input UpdateDogInput {
+  attributes: [DogAttributeInput!]
+  description: [String!]
+  image: String
+  ageInWeeks: Int
+  sex: String
+  breed: String
+  color: String
+  fee: Float
+  weight: Float
+  availableDate: String
+}
+
+input DogAttributeInput {
+  key: String!
+  value: String!
+}
+
+mutation CreateDog($input: DogInput!) {
+  createDog(input: $input) {
+    name
+    breed
+    ageInWeeks
+    sex
+    color
+    weight
+    image
+    fee
+  }
+}
+
+mutation UpdateDog($name: String!, $input: UpdateDogInput!) {
+  updateDog(name: $name, input: $input) {
+    name
+    breed
+    ageInWeeks
+    sex
+    color
+    weight
+    image
+    fee
+  }
+}
+
+mutation DeleteDog($name: String!) {
+  deleteDog(name: $name) {
+    name
+    breed
+    ageInWeeks
+    sex
+    color
+    weight
+    image
+    fee
+  }
+}
